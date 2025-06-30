@@ -1,0 +1,66 @@
+✅ Goal:
+Write a function to return all divisors of a number n and store them in a dynamic array (int*) while also updating the size.
+
+📌 Approach 1: Brute Force (O(n) Time)
+🔧 Logic:
+Loop from 1 to n
+
+If n % i == 0, then i is a divisor
+
+Store it in a vector or array
+
+🧠 Complexity:
+Time: O(n)
+
+Space: O(number of divisors)
+
+🔡 Example:
+For n = 10, divisors are: 1, 2, 5, 10
+
+📌 Approach 2: Optimized Using √n (O(√n) Time)
+✅ Code:
+cpp
+Copy
+Edit
+int* printDivisors(int n, int &size) {
+    vector<int> ans;
+
+    for (int i = 1; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            ans.push_back(i);             // i is a divisor
+            if ((n / i) != i) {
+                ans.push_back(n / i);     // n/i is also a divisor, avoid duplicates
+            }
+        }
+    }
+
+    sort(ans.begin(), ans.end());         // Sort divisors
+    size = ans.size();                    // Set output size
+
+    int* result = new int[size];          // Allocate dynamic array
+    for (int i = 0; i < size; i++) {
+        result[i] = ans[i];               // Copy values to array
+    }
+
+    return result;                        // Return array pointer
+}
+✅ Explanation:
+Instead of going till n, we only go till √n.
+
+For each i, we check both i and n/i as divisors.
+
+We avoid duplicates (like i == n/i when n is a perfect square).
+
+We use a vector to store divisors, then copy them to a dynamically allocated array.
+
+🧠 Complexity:
+Time: O(√n + d log d) → √n for loop, log d for sorting d divisors.
+
+Space: O(d), where d is the number of divisors.
+
+✅ Example:
+For n = 36, divisors collected efficiently:
+
+Found from loop: 1, 36, 2, 18, 3, 12, 4, 9, 6 (only once because 6*6 = 36)
+
+Final sorted array: 1, 2, 3, 4, 6, 9, 12, 18, 36
