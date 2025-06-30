@@ -1,0 +1,44 @@
+# 🔁 Reverse a Number
+
+## ✅ Code
+```java
+long long rev = 0;
+int ld = 0;
+while (n != 0) {
+    ld = n % 10;           // Get last digit
+    n = n / 10;            // Remove last digit
+    rev = (rev * 10) + ld; // Build reversed number
+}
+return rev;
+✅ Explanation
+rev: stores the reversed number.
+
+ld: holds the last digit of the number in each iteration.
+
+🔄 Steps:
+Extract the last digit using % 10.
+
+Divide n by 10 to remove the last digit.
+
+Multiply rev by 10 to shift digits and add the new digit (ld).
+
+Continue until n becomes 0.
+
+🧮 Example:
+Input: 1234
+Process:
+
+Step 1: ld = 4 → rev = 0×10 + 4 = 4
+
+Step 2: ld = 3 → rev = 4×10 + 3 = 43
+
+Step 3: ld = 2 → rev = 43×10 + 2 = 432
+
+Step 4: ld = 1 → rev = 432×10 + 1 = 4321
+
+✅ Output: 4321
+⏱️ Time Complexity:
+O(log₁₀ n) → depends on number of digits in n.
+
+⚠️ Edge Case:
+If n = 0, the output is also 0.
