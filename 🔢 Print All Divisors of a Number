@@ -45,7 +45,7 @@ int* printDivisors(int n, int &size) {
     return result;                        // Return array pointer
 }
 ✅ Explanation:
-Instead of going till n, we only go till √n.
+Instead of going till n, we only go till √n. (We can aslo write i*i<=n for not calling sqrt)
 
 For each i, we check both i and n/i as divisors.
 
@@ -64,3 +64,5 @@ For n = 36, divisors collected efficiently:
 Found from loop: 1, 36, 2, 18, 3, 12, 4, 9, 6 (only once because 6*6 = 36)
 
 Final sorted array: 1, 2, 3, 4, 6, 9, 12, 18, 36
+
+
