@@ -1,0 +1,47 @@
+✅ Code Logic:
+cpp
+----------------------------
+while (a > 0 && c > 0) {
+    if (a > c) {
+        a = a % c;
+    } else {
+        c = c % a;
+    }
+}
+if (a == 0) return c;
+if (c == 0) return a;
+-----------------------------
+📌 Purpose:
+This code is used to find the GCD (Greatest Common Divisor) of two numbers a and c.
+
+🧠 Algorithm Used: Euclidean Algorithm
+The Euclidean algorithm is a method for finding the greatest common divisor of two integers by repeatedly taking the remainder.
+------------------------------
+🔄 How It Works:
+If a > c, replace a with a % c
+
+If c > a, replace c with c % a
+
+Repeat this until one number becomes 0
+
+The other number is the GCD
+-------------------------------
+🧮 Example:
+Find GCD of a = 20 and c = 12:
+
+Step 1: 20 > 12 → a = 20 % 12 = 8
+Step 2: 12 > 8  → c = 12 % 8  = 4
+Step 3: 8 > 4   → a = 8 % 4   = 0
+Step 4: a == 0  → GCD = c = 4
+✅ GCD = 4
+--------------------------------
+🔢 Time Complexity:
+O(log(max(a, c)))
+--------------------------------
+📎 Final Return:
+
+cpp
+
+if (a == 0) return c;
+if (c == 0) return a;
+This ensures that we return the non-zero number, which is the GCD.
