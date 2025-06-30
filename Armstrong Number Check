@@ -1,0 +1,43 @@
+Code
+cpp
+Copy
+Edit
+int power(int n) {
+    return n * n * n;
+}
+
+bool isArmstrong(int num) {
+    int temp = num;
+    int sum = 0;
+    
+    while (num > 0) {
+        int ld = num % 10;         // Extract last digit
+        num = num / 10;            // Remove last digit
+        sum = sum + power(ld);     // Add cube of digit
+    }
+    
+    return (temp == sum) ? true : false;
+}
+✅ Explanation
+power(int n) returns the cube of a digit.
+
+isArmstrong(int num) checks if a number is an Armstrong number.
+
+For a 3-digit number:
+An Armstrong number is a number where sum of the cubes of its digits equals the number itself.
+
+e.g. 153 = 1³ + 5³ + 3³ = 1 + 125 + 27 = 153
+
+🧮 Example:
+Input: 153 → 1³ + 5³ + 3³ = 153 → ✅ true
+
+Input: 123 → 1³ + 2³ + 3³ = 36 → ❌ false
+
+✅ One-Liner Return:
+cpp
+Copy
+Edit
+return (temp == sum);
+🔁 Time Complexity:
+O(d) where d is the number of digits.
+
