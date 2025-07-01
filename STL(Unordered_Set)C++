@@ -1,0 +1,69 @@
+📘 What is unordered_set?
+unordered_set is an associative container that contains only unique elements.
+Internally implemented using a hash table.
+Elements are not stored in any particular order.
+Provides average O(1) time for insertion, deletion, and search.
+------------------------------------------------------------------------------
+📂 Header File
+
+#include <unordered_set>
+------------------------------------------------------------------------------
+📌 Declaration
+
+unordered_set<int> s;               // Integer set
+unordered_set<string> names;        // String set
+------------------------------------------------------------------------------
+🧩 Common Operations & Syntax
+Operation	Syntax	Description	Time Complexity (Avg / Worst)
+Insert	s.insert(x);	Inserts x if not present	O(1) / O(N)
+Erase	s.erase(x);	Removes x if exists	O(1) / O(N)
+Find	s.find(x);	Returns iterator to x or end()	O(1) / O(N)
+Count	s.count(x);	Returns 1 if x exists, else 0	O(1) / O(N)
+Size	s.size();	Number of elements	O(1)
+Empty	s.empty();	True if set is empty	O(1)
+Clear	s.clear();	Removes all elements	O(N)
+Begin / End	s.begin(), s.end()	Iterators to beginning and end	O(1)
+------------------------------------------------------------------------------
+
+🧪 Example Program
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+
+int main() {
+    unordered_set<int> s;
+
+    s.insert(5);
+    s.insert(10);
+    s.insert(15);
+    s.insert(5); // Duplicate, will be ignored
+
+    cout << "Elements: ";
+    for (int x : s) {
+        cout << x << " ";  // Order not guaranteed
+    }
+
+    if (s.count(10)) {
+        cout << "\n10 is present";
+    }
+
+    s.erase(5);
+    cout << "\nAfter deleting 5: ";
+    for (auto it = s.begin(); it != s.end(); ++it) {
+        cout << *it << " ";
+    }
+
+    return 0;
+}
+------------------------------------------------------------------------------
+🧠 Key Points
+Stores only unique values.
+No sorting or ordering of elements.
+Faster than set on average for insert/search/delete.
+Under heavy collisions (poor hash function), performance may degrade to O(N).
+------------------------------------------------------------------------------
+📌 When to Use unordered_set
+Use when:
+You need to check existence of items quickly.
+Ordering doesn't matter.
+You want faster average performance than set.
