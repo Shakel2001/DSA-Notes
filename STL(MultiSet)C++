@@ -1,0 +1,75 @@
+📘 What is multiset?
+multiset is an associative container in STL that:
+Stores duplicate elements.
+Maintains all elements in sorted order (ascending by default).
+Internally uses a balanced binary search tree (Red-Black Tree).
+---------------------------------------------------------------
+📂 Header File
+
+#include <set>
+
+---------------------------------------------------------------
+📌 Declaration
+
+multiset<int> ms;              // Multiset of integers
+multiset<string> names;        // Multiset of strings
+---------------------------------------------------------------
+🧩 Common Functions & Syntax
+Operation	Syntax	Description	Time Complexity
+Insert	ms.insert(x);	Adds x to the multiset	O(log N)
+Erase (all copies)	ms.erase(x);	Removes all occurrences of x	O(log N)
+Erase (one copy)	ms.erase(ms.find(x));	Removes only one occurrence of x	O(log N)
+Find	ms.find(x);	Returns iterator to the first occurrence	O(log N)
+Count	ms.count(x);	Returns how many times x occurs	O(log N)
+Size	ms.size();	Returns total number of elements	O(1)
+Empty	ms.empty();	Returns true if empty	O(1)
+Clear	ms.clear();	Removes all elements	O(N)
+Begin / End	ms.begin(), ms.end()	Iterators to start and end	O(1)
+---------------------------------------------------------------
+🧪 Example Code
+
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+    multiset<int> ms;
+
+    ms.insert(10);
+    ms.insert(20);
+    ms.insert(10);
+    ms.insert(30);
+
+    cout << "Elements: ";
+    for (int x : ms) {
+        cout << x << " ";  // Output: 10 10 20 30
+    }
+
+    cout << "\nCount of 10: " << ms.count(10);  // Output: 2
+
+    // Remove one instance of 10
+    ms.erase(ms.find(10));
+
+    cout << "\nAfter removing one 10: ";
+    for (int x : ms) {
+        cout << x << " ";  // Output: 10 20 30
+    }
+
+    return 0;
+}
+---------------------------------------------------------------
+🧠 Key Points
+Duplicates allowed (unlike set).
+Maintains sorted order.
+Useful when multiple identical items need to be stored and retrieved in order.
+Use find() to remove only one instance.
+---------------------------------------------------------------
+📌 When to Use multiset
+When you want:
+Elements sorted automatically.
+To allow duplicates.
+
+Example use cases:
+Storing test scores.
+Frequency counting while preserving order.
+Handling events with same priority.
