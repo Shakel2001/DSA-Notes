@@ -1,0 +1,163 @@
+🔹 What is multimap?
+A multimap is a container that stores elements in key-value pairs, allowing duplicate keys.
+It stores the data in sorted order of keys (like map).
+Underlying data structure: Red-Black Tree (self-balancing BST).
+✅ Use multimap when you want to associate multiple values with a single key.
+--------------------------------------------------------------------------------------------
+🔹 Header & Syntax
+
+#include <map>  // multimap is in the map header
+std::multimap<key_type, value_type> mmap_name;
+--------------------------------------------------------------------------------------------
+Example:
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    multimap<int, string> mmap;
+    return 0;
+}
+--------------------------------------------------------------------------------------------
+🔹 Basic Operations & Syntax with Time Complexities
+Operation	Syntax	Description	Time Complexity
+Insert	mmap.insert({key, value});	Inserts key-value pair	O(log n)
+Count	mmap.count(key);	Returns number of elements with key	O(log n + k)
+Erase (single key)	mmap.erase(key);	Removes all elements with the given key	O(log n + k)
+Erase (iterator)	mmap.erase(iterator);	Removes element at iterator	O(1)
+Find	mmap.find(key);	Returns iterator to first key match	O(log n)
+Lower Bound	mmap.lower_bound(key);	Returns iterator to first key >= key	O(log n)
+Upper Bound	mmap.upper_bound(key);	Returns iterator to first key > key	O(log n)
+Equal Range	mmap.equal_range(key);	Returns pair of lower and upper bound	O(log n)
+Size	mmap.size();	Total elements in multimap	O(1)
+Empty	mmap.empty();	Checks if empty	O(1)
+Clear	mmap.clear();	Removes all elements	O(n)
+Traverse	for (auto it : mmap)	Traverse all pairs	O(n)
+--------------------------------------------------------------------------------------------
+🔹 Example Program
+
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    multimap<int, string> mmap;
+
+    // Insert key-value pairs
+    mmap.insert({1, "Apple"});
+    mmap.insert({2, "Banana"});
+    mmap.insert({1, "Apricot"});
+    mmap.insert({3, "Cherry"});
+    mmap.insert({2, "Blueberry"});
+
+    // Traverse multimap
+    cout << "Multimap contents:\n";
+    for (auto it : mmap) {
+        cout << it.first << " -> " << it.second << endl;
+    }
+
+    // Count occurrences
+    cout << "\nCount of key 2: " << mmap.count(2) << endl;
+
+    // Find and erase only one instance
+    auto it = mmap.find(1);
+    if (it != mmap.end()) {
+        mmap.erase(it);  // Erases first occurrence of key 1
+    }
+
+    cout << "\nAfter erasing one entry with key 1:\n";
+    for (auto it : mmap) {
+        cout << it.first << " -> " << it.second << endl;
+    }
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------
+🔹 Iterating All Values of a Key
+
+auto range = mmap.equal_range(2); // returns pair of iterators
+for (auto it = range.first; it != range.second; ++it) {
+    cout << it->second << " ";
+}
+--------------------------------------------------------------------------------------------
+🔹 Key Properties of multimap
+
+Allows duplicate keys.
+Always sorted in ascending order of keys (can use custom comparator).
+Cannot use [] operator (unlike map), because keys may not be unique.
+
+--------------------------------------------------------------------------------------------
+🔹 Custom Comparator (Descending Order)
+
+multimap<int, string, greater<int>> mmap;
+--------------------------------------------------------------------------------------------
+🔹 Time Complexities Summary
+Operation	Time Complexity
+Insertion	O(log n)
+Deletion (by key)	O(log n + k)
+Deletion (by iterator)	O(1)
+Search (find)	O(log n)
+Count	O(log n + k)
+Traversal	O(n)
+--------------------------------------------------------------------------------------------
+✅ When to Use multimap
+When multiple values need to be stored for the same key.
+When you need sorted order of keys.
+When key duplication is essential (e.g., log entries, grouping data).
+Let me know if you want a comparison chart between map, multimap, unordered_map, unordered_multimap, or separate notes for any of them.
+--------------------------------------------------------------------------------------------
+
+
+
+📊 Comparison: map vs multimap vs unordered_map vs unordered_multimap
+--------------------------------------------------------------------------------------------
+Feature / Container	map	multimap	unordered_map	unordered_multimap
+Header	            <map>	<map>	<unordered_map>	<unordered_map>
+Key Uniqueness	   ✅ Unique	❌ Duplicates Allowed	✅ Unique	❌ Duplicates Allowed
+Order of Keys    	✅ Sorted (by key)	✅ Sorted (by key)	❌ Unordered (hashed)	❌ Unordered (hashed)
+Underlying DS	    Red-Black Tree (BST)	Red-Black Tree (BST)	Hash Table	Hash Table
+Access Operator      []	✅ Yes	❌ No	✅ Yes	❌ No
+Time Complexity     (Insert/Find/Erase)	O(log n)	O(log n)	O(1) average
+O(n) worst	O(1) average
+O(n) worst
+Allows Multiple Values per Key	❌ No	✅ Yes	❌ No	✅ Yes
+Duplicate Keys	❌ Not Allowed	✅ Allowed	❌ Not Allowed	✅ Allowed
+Best Use Case	Sorted dictionary with unique keys	Grouping data with duplicate keys	Fast access with unique keys	Fast access with duplicate keys
+--------------------------------------------------------------------------------------------
+🔹 Quick Example Overview
+
+// map
+map<int, string> m;
+m[1] = "One";
+m[2] = "Two";
+
+// multimap
+multimap<int, string> mm;
+mm.insert({1, "One"});
+mm.insert({1, "Uno"});
+
+// unordered_map
+unordered_map<int, string> um;
+um[3] = "Three";
+
+// unordered_multimap
+unordered_multimap<int, string> umm;
+umm.insert({2, "Two"});
+umm.insert({2, "Dos"});
+--------------------------------------------------------------------------------------------
+✅ Summary Tips
+Use map when:
+Keys are unique
+You need sorted traversal
+--------------------------------------------------------------------------------------------
+Use multimap when:
+Duplicate keys are required
+You want to group multiple values under the same key with sorted keys
+--------------------------------------------------------------------------------------------
+Use unordered_map when:
+Unique keys with fast access (average O(1)) is the priority
+Ordering doesn't matter
+--------------------------------------------------------------------------------------------
+Use unordered_multimap when:
+Duplicate keys and fast lookup are needed
+No need to sort keys
