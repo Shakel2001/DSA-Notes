@@ -1,0 +1,73 @@
+📘 What is vector?
+A dynamic array provided by the C++ STL. Can grow or shrink automatically.Provides fast random access and efficient insertion/removal at the end.
+-------------------------------------------------------------------
+📂 Header File
+#include <vector>
+
+-------------------------------------------------------------------
+📌 Declaration
+
+vector<int> v;                      // Empty vector of int
+vector<int> v(5);                   // 5 elements with default value 0
+vector<int> v(5, 10);               // 5 elements, each initialized to 10
+vector<int> v = {1, 2, 3, 4};       // Using initializer list
+vector<string> names(3, "John");    // 3 strings "John"
+
+-------------------------------------------------------------------
+🔁 Common Operations
+
+v.push_back(x);         // Add x to the end
+v.pop_back();           // Remove last element
+v.size();               // Number of elements
+v.empty();              // Check if empty
+v.clear();              // Remove all elements
+v.front();              // First element
+v.back();               // Last element
+v.capacity();           // Current allocated memory size
+v.resize(10);           // Resize to 10 elements
+v.assign(5, 100);       // Assign 5 elements of value 100
+
+-------------------------------------------------------------------
+🎯 Access Elements
+v[i];                  // Direct access (no bounds checking)
+v.at(i);               // Access with bounds checking
+-------------------------------------------------------------------
+🧭 Traversal
+// Using index
+for (int i = 0; i < v.size(); i++)
+    cout << v[i] << " ";
+
+// Range-based loop
+for (int x : v)
+    cout << x << " ";
+
+// Iterator
+for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+    cout << *it << " ";
+-------------------------------------------------------------------
+🧪 Sorting and Algorithms
+
+sort(v.begin(), v.end());           // Sort in ascending
+reverse(v.begin(), v.end());        // Reverse the vector
+count(v.begin(), v.end(), 3);       // Count occurrences of 3
+find(v.begin(), v.end(), 4);        // Find element
+-------------------------------------------------------------------
+🛠️ Insert and Erase
+
+v.insert(v.begin() + 2, 50);        // Insert 50 at index 2
+v.erase(v.begin() + 1);             // Erase element at index 1
+v.erase(v.begin(), v.begin() + 3);  // Erase range
+-------------------------------------------------------------------
+🔄 Swap and Compare
+
+vector<int> a = {1, 2}, b = {3, 4};
+a.swap(b);                // Swap contents
+a == b;                   // Compare vectors
+
+-------------------------------------------------------------------
+📌 2D Vector
+vector<vector<int>> mat(3, vector<int>(4, 0));  // 3x4 matrix filled with 0
+🧠 Tip
+Use reserve(n) to avoid multiple reallocations when size is known.
+
+Always prefer at() if safety is a concern.
