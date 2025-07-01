@@ -1,0 +1,35 @@
+1. Factorial of N numbers
+solution
+#include<bits/stdc++.h>
+using namespace std;
+int Fac(int n){
+    if(n==0) return 1;
+    return n*Nsum(n-1);
+}
+int main(){
+    // int i=1;
+    int n;
+    cin>>n;
+    cout<<Fac(n);
+  
+}
+
+2. Reverse an array
+#include<bits/stdc++.h>
+using namespace std;
+void rev(int arr[], int i){
+    int n=5;
+    if(i>=n/2){
+        return;
+    }
+    swap(arr[i],arr[n-i-1]);
+    rev(arr,i+1);  
+}
+int main(){
+  
+    int arr[]={1,2,3,44,5};
+    rev(arr,0);
+    for(int i: arr){
+        cout<<i<<" ";
+    }
+}
