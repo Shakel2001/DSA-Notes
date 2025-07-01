@@ -1,0 +1,77 @@
+📘 All sort() Syntax in C++ (STL)
+----------------------------------------------------------------
+🔹 1. Sorting a Normal (C-style) Array
+sort(arr, arr + n); // Ascending order
+sort(arr, arr + n, greater<int>()); // Descending order
+sort(arr, arr + n, custom_function); // Using custom comparator
+----------------------------------------------------------------
+🔹 2. Sorting a Vector
+
+sort(v.begin(), v.end()); // Ascending
+sort(v.begin(), v.end(), greater<int>()); // Descending
+sort(v.begin(), v.end(), custom_function); // With comparator
+----------------------------------------------------------------
+🔹 3. Sorting a Subarray or Subvector
+
+sort(arr + l, arr + r); // Array: from index l to r-1
+sort(v.begin() + l, v.begin() + r); // Vector: index l to r-1
+----------------------------------------------------------------
+🔹 4. Stable Sort (Preserves Relative Order)
+
+stable_sort(arr, arr + n); // Array
+stable_sort(v.begin(), v.end()); // Vector
+stable_sort(v.begin(), v.end(), custom_function); // With comparator
+----------------------------------------------------------------
+🔹 5. Descending Order Sorting
+
+sort(arr, arr + n, greater<int>()); // Array
+sort(v.begin(), v.end(), greater<int>()); // Vector
+----------------------------------------------------------------
+🔹 6. Sorting with Custom Comparator
+Custom function for int array/vector:
+----------------------------------------------------------------
+bool custom(int a, int b) {
+    return (a % 10) < (b % 10); // Sort by last digit
+}
+sort(arr, arr + n, custom);
+sort(v.begin(), v.end(), custom);
+Custom comparator for pair<int, int>:
+----------------------------------------------------------------
+bool cmp(pair<int, int> a, pair<int, int> b) {
+    if (a.second == b.second)
+        return a.first < b.first; // sort by second, then first
+    return a.second < b.second;
+}
+sort(v.begin(), v.end(), cmp);
+----------------------------------------------------------------
+🔹 7. Sorting Strings
+
+vector<string> v = {"Banana", "Dog", "Apple"};
+
+sort(v.begin(), v.end()); // Alphabetical
+sort(v.begin(), v.end(), [](string a, string b) {
+    return a.length() < b.length(); // Sort by length
+});
+----------------------------------------------------------------
+🔹 8. Sorting in Descending Using Lambda (C++11+)
+
+sort(v.begin(), v.end(), [](int a, int b) {
+    return a > b; // Descending
+});
+----------------------------------------------------------------
+🔹 9. Sorting Array of Pairs
+
+pair<int, int> arr[] = {{1, 3}, {2, 2}, {1, 2}};
+sort(arr, arr + 3); // Sorts by first, then second
+----------------------------------------------------------------
+✅ Summary Table
+Use Case	Syntax Example
+Array Ascending	sort(arr, arr + n);
+Array Descending	sort(arr, arr + n, greater<int>());
+Vector Ascending	sort(v.begin(), v.end());
+Vector Descending	sort(v.begin(), v.end(), greater<int>());
+Subarray	sort(arr + l, arr + r);
+Subvector	sort(v.begin() + l, v.begin() + r);
+Custom Comparator	sort(arr, arr + n, cmp);
+Stable Sort	stable_sort(arr, arr + n);
+Sorting by String Length	Use lambda or custom function
