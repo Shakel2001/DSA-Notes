@@ -1,0 +1,57 @@
+📘 What is a queue?
+A container that follows FIFO (First In First Out) principle.Elements are added at the back and removed from the front.
+Internally uses a deque by default.Provides constant time insertion/removal at both ends (amortized).
+-----------------------------------------------------
+📂 Header File
+
+#include <queue>
+
+-----------------------------------------------------
+📌 Declaration
+
+queue<int> q;              // Queue of integers
+queue<string> names;       // Queue of strings
+
+-----------------------------------------------------
+🧩 Common Operations
+
+q.push(10);        // Insert element at the back
+q.pop();           // Remove front element
+q.front();         // Get the front element
+q.back();          // Get the last element
+q.empty();         // Check if queue is empty
+q.size();          // Get the number of elements
+-----------------------------------------------------
+🔁 Example Program
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+
+    while (!q.empty()) {
+        cout << q.front() << " ";  // Output: 1 2 3
+        q.pop();
+    }
+
+    return 0;
+}
+
+-----------------------------------------------------
+🔧 Custom Initialization
+
+#include <deque>
+deque<int> dq = {10, 20, 30};
+queue<int> q(dq);  // Initialize queue using deque
+-----------------------------------------------------
+🧠 When to Use queue
+Use queue when you need FIFO behavior:
+Task scheduling
+Breadth-First Search (BFS) in trees/graphs
+Process handling in OS
+Messaging systems
