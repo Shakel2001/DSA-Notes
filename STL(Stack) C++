@@ -1,0 +1,54 @@
+📘 What is a stack?
+A LIFO (Last In First Out) data structure.Only the top element is accessible.New elements are pushed to the top.Old elements are popped from the top.
+---------------------------------------------------------
+📂 Header File
+#include <stack>
+📌 Declaration
+cpp
+Copy
+Edit
+stack<int> s;              // Stack of integers
+stack<string> names;       // Stack of strings
+---------------------------------------------------------
+🧩 Basic Operations
+s.push(10);        // Insert element at top
+s.pop();           // Remove top element
+s.top();           // Return top element
+s.empty();         // Check if stack is empty
+s.size();          // Get number of elements
+---------------------------------------------------------
+🔁 Example Program
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+
+    while (!s.empty()) {
+        cout << s.top() << " ";  // Output: 3 2 1
+        s.pop();
+    }
+
+    return 0;
+}
+---------------------------------------------------------
+🧪 Custom Initialization
+#include <deque>
+deque<int> dq = {5, 10, 15};
+stack<int> s(dq);  // Use deque to initialize stack
+---------------------------------------------------------
+📌 STL Container Used
+By default, stack is implemented using deque, but it can also use:
+
+stack<int, vector<int>> s1;   // Stack using vector
+stack<int, list<int>> s2;     // Stack using list
+---------------------------------------------------------
+🧠 Use Cases
+Undo/Redo functionality
+Expression evaluation (postfix, prefix)
+Function call stack (recursion)
+Reversing words/strings
