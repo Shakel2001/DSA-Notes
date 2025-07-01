@@ -1,0 +1,69 @@
+📘 What is set?
+set is a container in C++ STL that stores unique elements in sorted order.
+It is implemented using a balanced binary search tree (typically Red-Black Tree).
+Elements are automatically sorted in ascending order.
+-----------------------------------------------------------------------------------
+📂 Header File
+
+#include <set>
+-----------------------------------------------------------------------------------
+📌 Declaration
+
+set<int> s;               // Set of integers
+set<string> names;        // Set of strings
+-----------------------------------------------------------------------------------
+🧩 Common Operations & Syntax
+Operation	Syntax	Description	Time Complexity
+Insert	s.insert(x);	Inserts x if not already present	O(log N)
+Erase	s.erase(x);	Removes x if present	O(log N)
+Find	s.find(x);	Returns iterator to x or s.end()	O(log N)
+Count	s.count(x);	Returns 1 if x exists, else 0	O(log N)
+Size	s.size();	Number of elements in the set	O(1)
+Empty	s.empty();	Returns true if set is empty	O(1)
+Clear	s.clear();	Removes all elements	O(N)
+Begin / End	s.begin(), s.end()	Iterators to beginning and end	O(1)
+-----------------------------------------------------------------------------------
+
+🔁 Example Program
+
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+    set<int> s;
+
+    s.insert(20);
+    s.insert(10);
+    s.insert(30);
+    s.insert(10);  // Duplicate, ignored
+
+    cout << "Elements in set: ";
+    for (int x : s) {
+        cout << x << " ";  // Output: 10 20 30
+    }
+
+    if (s.find(20) != s.end()) {
+        cout << "\n20 is found in the set.";
+    }
+
+    s.erase(10);
+    cout << "\nAfter erasing 10: ";
+    for (auto it = s.begin(); it != s.end(); it++) {
+        cout << *it << " ";  // Output: 20 30
+    }
+
+    return 0;
+}
+-----------------------------------------------------------------------------------
+🧠 Key Points
+Elements are automatically sorted.
+No duplicates allowed.
+Insertion and deletion take O(log N) time due to tree structure.
+Use iterators or range-based for loops to traverse.
+-----------------------------------------------------------------------------------
+📌 When to Use set
+Use set when:
+You want to store only unique elements.
+You need to perform search, insert, delete efficiently in sorted order.
+You want elements to be automatically maintained in order.
