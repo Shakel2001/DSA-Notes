@@ -1,0 +1,55 @@
+📘 What is list?
+A doubly linked list container from STL.Allows fast insertion and deletion at both ends and in the middle.Slower access by index (no random access).
+--------------------------------------------------------------------------
+Header file: #include <list>
+--------------------------------------------------------------------------
+📂 Declaration
+
+list<int> l;                      // Empty list
+list<int> l(5);                   // 5 default-initialized elements (0)
+list<int> l(4, 100);              // 4 elements initialized with 100
+list<int> l = {1, 2, 3, 4};       // List with initializer list
+
+--------------------------------------------------------------------------
+🧩 Common Functions
+
+l.push_back(10);      // Add element at the end
+l.push_front(5);      // Add element at the front
+l.pop_back();         // Remove last element
+l.pop_front();        // Remove first element
+l.size();             // Get number of elements
+l.empty();            // Check if list is empty
+l.clear();            // Remove all elements
+
+--------------------------------------------------------------------------
+🔁 Traversal
+🔹 Range-based loop:
+for (int x : l)
+    cout << x << " ";
+🔹 Iterator:
+list<int>::iterator it;
+for (it = l.begin(); it != l.end(); ++it)
+    cout << *it << " ";
+--------------------------------------------------------------------------
+✏️ Insert and Erase
+
+list<int>::iterator it = l.begin();
+advance(it, 2);         // Move iterator to 3rd position (0-indexed)
+l.insert(it, 99);       // Insert 99 before 3rd element
+l.erase(it);            // Erase element at iterator position
+--------------------------------------------------------------------------
+🔄 Modify
+l.reverse();            // Reverse the list
+l.sort();               // Sort the list
+l.unique();             // Remove consecutive duplicates
+--------------------------------------------------------------------------
+🔗 Merging Lists
+list<int> l1 = {1, 3, 5};
+list<int> l2 = {2, 4, 6};
+l1.merge(l2);           // Merge l2 into l1 (both should be sorted)
+--------------------------------------------------------------------------
+🧠 Notes
+list is useful when:
+You need frequent insertion/deletion from any position.
+Index-based access is not your priority.
+Internally implemented using doubly linked list.
