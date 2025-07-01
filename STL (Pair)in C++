@@ -1,0 +1,50 @@
+✅ What is pair?
+A pair is a simple container defined in the <utility> header that holds exactly two values.
+The two values can be of the same or different types.
+------------------------------------
+🔧 Declaration and Initialization
+----------------------------------
+#include <iostream>
+#include <utility>
+using namespace std;
+
+pair<int, string> p1 = {1, "apple"};
+pair<int, int> p2(2, 100);
+pair<char, double> p3;
+p3 = make_pair('A', 3.14);
+
+--------------------------------------
+🧩 Accessing Values
+
+cout << p1.first << " " << p1.second;  // Output: 1 apple
+first → accesses the first element
+
+second → accesses the second element
+--------------------------------------
+🔄 Nested Pairs
+
+pair<int, pair<int, int>> p = {1, {2, 3}};
+cout << p.first << " " << p.second.first << " " << p.second.second;
+// Output: 1 2 3
+---------------------------------------
+
+📦 Pair inside Vector
+vector<pair<int, int>> v;
+v.push_back({1, 2});
+v.push_back(make_pair(3, 4));
+Useful in sorting, graph algorithms, etc.
+
+🎯 Use Cases
+Returning multiple values from functions
+
+Key-value pairs in algorithms
+
+Custom sorting using pair values
+
+Graph representations like adjacency list
+--------------------------------------------
+🧠 Bonus Tip:
+You can also tie multiple values like:
+
+tuple<int, char, string> t = make_tuple(1, 'a', "apple");
+Use tuple when more than two values are needed.
