@@ -1,0 +1,15 @@
+Fibonacci Formula
+
+Fib(n)= Fib(n-1)+Fib(n-2)
+example: five fib are : 0, 1, 1, 2, 3, 5
+to get 5th we need we add 4th & 3rd
+
+class Solution {
+public:
+    int fib(int n) {
+        //your code goes here
+        if(n==0) return 0;
+        if(n==1) return 1;
+        return fib(n-1)+fib(n-2);
+    }
+};
