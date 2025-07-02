@@ -1,0 +1,50 @@
+Insertion sort is a simple sorting algorithm that builds the final sorted array one element at a time.
+It works like sorting playing cards in your hand.
+--------------------------------------------------------------------------------------------------------
+📘 Logic of the Code:
+for (int i = 0; i < n; i++) {
+    int j = i;
+    while (j > 0 && nums[j - 1] > nums[j]) {
+        swap(nums[j - 1], nums[j]);
+        j--;
+    }
+}
+--------------------------------------------------------------------------------------------------------
+Step-by-Step:
+Start from i = 0 to n-1.
+For each element, check if it is smaller than the one before it.
+If it is, swap it backward until it reaches its correct position.
+This way, the left part of the array becomes sorted gradually.
+
+--------------------------------------------------------------------------------------------------------
+🧪 Example Walkthrough:
+Let’s sort this array:
+
+nums = [5, 3, 4, 1]
+Iterations:
+i = 0 → nothing happens ([5, 3, 4, 1])
+
+i = 1 → compare 3 and 5 → swap → [3, 5, 4, 1]
+
+i = 2 → compare 4 and 5 → swap → [3, 4, 5, 1]
+
+i = 3 → 1 < 5 → swap → [3, 4, 1, 5]
+→ 1 < 4 → swap → [3, 1, 4, 5]
+→ 1 < 3 → swap → [1, 3, 4, 5]
+
+✅ Final Sorted Array: [1, 3, 4, 5]
+--------------------------------------------------------------------------------------------------------
+🧠 Time and Space Complexity:
+Case	Time Complexity
+Best (sorted)	O(n) ✅
+Average	O(n²) ❌
+Worst	O(n²) ❌
+Space	O(1) ✅ (In-place)
+--------------------------------------------------------------------------------------------------------
+✅ Advantages:
+Simple and easy to understand
+Good for small arrays or nearly sorted arrays
+Stable (preserves relative order of equal elements)
+--------------------------------------------------------------------------------------------------------
+❌ Disadvantages:
+Inefficient on large datasets (O(n²) time)
