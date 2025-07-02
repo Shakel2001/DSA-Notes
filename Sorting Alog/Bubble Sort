@@ -1,0 +1,69 @@
+Bubble Sort is a simple sorting algorithm that:
+Repeatedly compares adjacent elements,
+Swaps them if they are in the wrong order.
+After each full pass, the largest element bubbles to the end.
+----------------------------------------------------------------------
+🧠 Logic of the Code:
+
+for (int i = 0; i < n - 1; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+        if (nums[j] > nums[j + 1]) {
+            swap(nums[j], nums[j + 1]);
+        }
+    }
+}
+
+----------------------------------------------------------------------
+Explanation:
+Outer loop (i) tracks how many passes we’ve completed.
+Inner loop (j) compares each pair and swaps if needed.
+After each pass, the largest unsorted element reaches its correct position.
+
+----------------------------------------------------------------------
+🧪 Example:
+Input:
+
+nums = [5, 1, 4, 2]
+Step-by-step:
+Pass 1:
+
+5 > 1 → swap → [1, 5, 4, 2]
+
+5 > 4 → swap → [1, 4, 5, 2]
+
+5 > 2 → swap → [1, 4, 2, 5]
+
+Pass 2:
+
+1 < 4 → no swap
+
+4 > 2 → swap → [1, 2, 4, 5]
+
+Pass 3:
+
+1 < 2 → no swap
+
+✅ Final Output: [1, 2, 4, 5]
+
+----------------------------------------------------------------------
+📝 Notes:
+Works by repeatedly swapping adjacent elements until the array is sorted.
+After i passes, the last i elements are in correct position.
+
+----------------------------------------------------------------------
+⏱️ Time and Space Complexity:
+Case	Time Complexity
+Best (sorted)	O(n) ✅ (with optimization)
+Average	O(n²) ❌
+Worst	O(n²) ❌
+Space	O(1) ✅ (In-place)
+
+----------------------------------------------------------------------
+✅ Advantages:
+Easy to implement
+Works well for small or nearly sorted arrays
+
+----------------------------------------------------------------------
+❌ Disadvantages:
+Very slow for large arrays
+Not suitable for high-performance needs
