@@ -95,7 +95,7 @@ int main() {
         xor2 ^= a[i];
         xor1 ^= (i + 1);
     }
-    xor1 ^= n;
+    xor1 ^= (n+1);
 
     int ans = xor1 ^ xor2;
     cout << ans;
