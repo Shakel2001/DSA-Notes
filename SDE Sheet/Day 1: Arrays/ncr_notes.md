@@ -4,7 +4,7 @@
 ## 🧠 Problem Statement
 Calculate **nCr** (number of combinations):
 \[
-nCr = \frac{n!}{r!(n - r)!}
+nCr = frac{n!}/{r!(n - r)!}
 \]
 This represents the number of ways to choose `r` items from `n` items without considering the order.
 
