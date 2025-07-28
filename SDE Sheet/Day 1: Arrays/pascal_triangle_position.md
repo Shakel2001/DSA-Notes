@@ -5,6 +5,7 @@
 Given a position in Pascal's Triangle (row, col), find the value at that position.
 
 ### 📌 Note:
+- Formula = {row-1}c{col-1} NcR
 - Pascal’s Triangle indexing starts from **row = 1** and **col = 1** (1-based indexing).
 - Each value at position (r, c) is given by **nCr**:
 \[
