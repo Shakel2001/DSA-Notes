@@ -28,8 +28,8 @@ Return a vector of two elements: `{missing, repeating}`.
 
 ### 📦 Code
 
-cpp
-```
+```cpp
+
 class Solution {
 public:
     vector<int> findMissingRepeatingNumbers(vector<int> nums) {
@@ -104,8 +104,8 @@ From this, solve for x and y.
 
 ### 📦 Code
 
-cpp
-```
+```cpp
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -164,8 +164,8 @@ int main(){
 
 ### 📦 Code
 
-cpp
-```
+```cpp
+
 
 #include<bits/stdc++.h>
 using namespace std;
