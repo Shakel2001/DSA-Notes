@@ -24,9 +24,8 @@ Sort Colors (LeetCode 75) --- <https://leetcode.com/problems/sort-colors/descri
 
 ### 📘 Code
 
-cpp
+```cpp
 
-```
 
 class Solution {
 public:
@@ -70,9 +69,8 @@ Use **3 pointers**:
 
 ### 📘 Code
 
-cpp
+```cpp
 
-```
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
