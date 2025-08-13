@@ -5,6 +5,10 @@
 Given an array of integers `nums`, rearrange the numbers to get the **next lexicographically greater permutation**. If such arrangement is not possible, rearrange it as the **lowest possible order** (i.e., sorted in ascending order).
 
 ---
+Problem link
+============
+
+Next Permutation (LeetCode 31) --- <https://leetcode.com/problems/next-permutation/description/>
 
 ## ✅ Approach: Efficient (O(n))
 
