@@ -6,6 +6,11 @@
 
 Given an array `nums` containing only `0`, `1`, and `2`, **sort the array in-place** so that all `0`s come first, followed by all `1`s, then all `2`s.
 
+Problem link
+============
+
+Sort Colors (LeetCode 75) --- <https://leetcode.com/problems/sort-colors/description/>
+
 * * * * *
 
 🧠 Approach 1: Counting Sort (Better)
